@@ -16,6 +16,7 @@ const controller = (function(model, view) {
 
   return {
     init() {
+      view.renderWorkspace();
       setupEventListeners();
     }
   };

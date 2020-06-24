@@ -1,4 +1,8 @@
 const view = (function() {
+  function getRoot() {
+    return document.getElementById('root');
+  }
+
   function dragoverHandler(e) {
     e.preventDefault();
     e.dataTransfer.dropEffect ='move';
@@ -12,6 +16,21 @@ const view = (function() {
   }
 
   return {
+    renderWorkspace() {
+      const root = getRoot();
 
+      // Create workspace element
+      const workspace = document.createElement('div');
+      workspace.setAttribute('class', 'workspace');
+
+      // Create button element
+      const addColumnBtn = document.createElement('button');
+      addColumnBtn.setAttribute('class', 'btn');
+      addColumnBtn.textContent = 'Add column';
+
+      workspace.appendChild(addColumnBtn);
+
+      root.appendChild(workspace);
+    }
   };
 })();
