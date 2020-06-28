@@ -1,11 +1,11 @@
-const view = (function() {
+const view = (function () {
   function getRoot() {
     return document.getElementById('root');
   }
 
   function dragoverHandler(e) {
     e.preventDefault();
-    e.dataTransfer.dropEffect ='move';
+    e.dataTransfer.dropEffect = 'move';
   }
 
   function dropHandler(e) {
@@ -26,11 +26,15 @@ const view = (function() {
       // Create button element
       const addColumnBtn = document.createElement('button');
       addColumnBtn.setAttribute('class', 'btn');
+      addColumnBtn.setAttribute('id', 'addColumnBtn');
       addColumnBtn.textContent = 'Add column';
 
       workspace.appendChild(addColumnBtn);
 
       root.appendChild(workspace);
+    },
+    getAddColumnBtn() {
+      return document.getElementById('addColumnBtn');
     }
   };
 })();

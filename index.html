@@ -5,25 +5,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>TrelloClone</title>
 </head>
 <body>
-<!--    <div class="workspace">-->
-<!--        <div class="column" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">-->
-<!--            <div class="item" id="item-0" draggable="true">-->
-<!--                <p class="item-body">Hello world</p>-->
-<!--            </div>-->
-<!--            <div class="item" id="item-1" draggable="true">-->
-<!--                <p class="item-body">Hello world</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="column" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">-->
-<!--            <div class="item" id="item-2" draggable="true">-->
-<!--                <p class="item-body">Hello world</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <div class="workspace">
+        <div class="column" ondrop="dropHandler(event, this)" ondragover="dragoverHandler(event)">
+            <span class="column-title">Todo</span>
+            <div class="item" id="item-0" draggable="true">
+                <p class="item-body">Hello world</p>
+            </div>
+            <div class="item" id="item-1" draggable="true">
+                <p class="item-body">Hi world</p>
+            </div>
+        </div>
+        <div class="column" ondrop="dropHandler(event, this)" ondragover="dragoverHandler(event)">
+            <div class="item" id="item-2" draggable="true">
+                <p class="item-body">Bye</p>
+            </div>
+        </div>
+        <button id="addColumnBtn" class="btn">Add column</button>
+    </div>
 
     <div id="root"></div>
 
