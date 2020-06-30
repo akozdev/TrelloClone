@@ -11,7 +11,6 @@ function dragoverHandler(e) {
 }
 
 function dropHandler(e, el) {
-  console.log(el);
   e.preventDefault();
   const data = e.dataTransfer.getData('text/plain');
   el.appendChild(document.getElementById(data));
@@ -27,15 +26,6 @@ function addColumn(e) {
   workspace.appendChild(column);
 }
 
-
-// <div class="column" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
-//   <div class="item" id="item-0" draggable="true">
-//   <p class="item-body">Hello world</p>
-// </div>
-// <div class="item" id="item-1" draggable="true">
-//   <p class="item-body">Hello world</p>
-// </div>
-// </div>
 
 // EVENT LISTENERS
 window.addEventListener('DOMContentLoaded', () => {
