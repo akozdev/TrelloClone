@@ -10,11 +10,18 @@ function dragoverHandler(e) {
   e.dataTransfer.dropEffect = 'move';
 }
 
-function dropHandler(e, el) {
+function dropHandler(e) {
   e.preventDefault();
   const data = e.dataTransfer.getData('text/plain');
-  el.appendChild(document.getElementById(data));
+  e.target.appendChild(document.getElementById(data));
 }
+
+/* Prevent from dropping on child elements */
+// function dropHandler(e, el) {
+//   e.preventDefault();
+//   const data = e.dataTransfer.getData('text/plain');
+//   el.appendChild(document.getElementById(data));
+// }
 
 // ADD COLUMN BUTTON HANDLER
 function addColumn(e) {
