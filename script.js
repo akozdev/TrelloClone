@@ -30,6 +30,13 @@ function addColumn(e) {
   column.ondrop = dropHandler;
   column.ondragover = dragoverHandler;
 
+  const colTitle = document.createElement('span');
+  colTitle.setAttribute('class', 'column-title');
+
+  const colTitleText = document.createTextNode('Title');
+
+  colTitle.appendChild(colTitleText);
+  column.appendChild(colTitle);
   workspace.appendChild(column);
 }
 
@@ -41,3 +48,49 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('addColumnBtn').addEventListener('click', addColumn);
+
+
+// Titles
+const titles = document.querySelectorAll('.column-title');
+
+titles.forEach(title => {
+  title.addEventListener('click', e => {
+    const column = e.target.parentElement;
+    const input = document.createElement('input');
+    input.setAttribute('class', 'title-input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('value', 'Title');
+
+    input.addEventListener('keyup', e => {
+      if (e.code === 'Enter') {
+        const title = document.createElement('span');
+        title.setAttribute('class', 'column-title');
+
+        const titleText = document.createTextNode(e.target.value);
+
+        title.appendChild(titleText);
+        e.target.replaceWith(title);
+      }
+    });
+
+    e.target.replaceWith(input);
+  });
+});
+
+
+// Observer if there are changes in the workspace (new columns added)
+const config = { childList: true }
+
+const callback = function(mutationList, observer) {
+  const titles = document.querySelectorAll('.column-title');
+
+  titles.forEach(title => {
+    title.addEventListener('click', e => {
+      console.log(e.target);
+      e.target.remove();
+    });
+  });
+}
+
+const observer = new MutationObserver(callback);
+observer.observe(workspace, config);
